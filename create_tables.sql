@@ -54,3 +54,10 @@ CREATE TABLE Baggage (
     baggageID INT PRIMARY KEY,
     passID CHAR(20) REFERENCES Passengers(passID)
 );
+
+CREATE TABLE Travel (
+    freshID INT PRIMARY KEY,
+    depID INT REFERENCES Departure(depID),
+    arrID INT REFERENCES Arrival(arrID)
+    passID CHAR(20) REFERENCES Passengers(passID)
+);
