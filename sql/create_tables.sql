@@ -55,7 +55,8 @@ CREATE TABLE Baggage (
 );
 
 CREATE TABLE Travel (
-    freshID INT PRIMARY KEY,
+    tID INT PRIMARY KEY,
+    freshID INT,
     depID INT REFERENCES Departure(depID),
     arrID INT REFERENCES Arrival(arrID),
     passID CHAR(20) REFERENCES Passengers(passID)
