@@ -6,7 +6,6 @@ CREATE TABLE Airline (
 
 CREATE TABLE Route (
     r_number INT CHECK(r_number < 10000) PRIMARY KEY
-    ON DELETE CASCADE
 );
 
 CREATE TABLE flight (
@@ -14,19 +13,19 @@ CREATE TABLE flight (
     code CHAR(4),
     r_number INT,
     FOREIGN KEY(code) REFERENCES Airline(code),
-    FOREIGN KEY(r_number) REFERENCES Route(r_number)
+    FOREIGN KEY(r_number) REFERENCES Route(r_number) ON DELETE CASCADE
 );
 
 CREATE TABLE Outgoing (
     destination VARCHAR(255),
     outT DATE,
-    r_number INT PRIMARY KEY REFERENCES Route(r_number)
+    r_number INT PRIMARY KEY REFERENCES Route(r_number) ON DELETE CASCADE
 );
 
 CREATE TABLE Incoming (
     origin VARCHAR(255),
     incT DATE,
-    r_number INT PRIMARY KEY REFERENCES Route(r_number)
+    r_number INT PRIMARY KEY REFERENCES Route(r_number) ON DELETE CASCADE
 );
 
 CREATE TABLE Departure (
@@ -58,6 +57,6 @@ CREATE TABLE Baggage (
 CREATE TABLE Travel (
     freshID INT PRIMARY KEY,
     depID INT REFERENCES Departure(depID),
-    arrID INT REFERENCES Arrival(arrID)
+    arrID INT REFERENCES Arrival(arrID),
     passID CHAR(20) REFERENCES Passengers(passID)
 );
