@@ -1,5 +1,6 @@
 import java.sql.*;
 import java.util.*;
+import java.lang.*;
 
 public class ConnectionManager {
     private static ConnectionManager instance = null;
@@ -27,7 +28,7 @@ public class ConnectionManager {
         else { //No one left in the stack, create a new one
             try {
                 conn = DriverManager.getConnection
-			("jdbc:oracle:thin:@localhost:1522:studentdb", System.getenv("CSC370USER"), System.getenv("CSC370PASS"));
+			("jdbc:oracle:thin:@localhost:1522:studentdb", System.getProperty("CSC370USER"), System.getProperty("CSC370PASS"));
             } catch (SQLException ex) {
                 System.out.println("SQLException: " + ex);
             }

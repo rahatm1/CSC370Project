@@ -3,21 +3,20 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import java.sql.*;
 
-public class Insert extends HttpServlet {
-    void processRequest(HttpServletRequest request, HttpServletResponse response) 
+public class InsertAirline extends HttpServlet {
+    void processRequest(HttpServletRequest request, HttpServletResponse response)
     						throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        
-        String title = request.getParameter("title");
-        String year = request.getParameter("year");
-        String length = request.getParameter("length");
-        String studioName = request.getParameter("studio");
-        
-        String statementString = 
-		"INSERT INTO Movies(title, year, length, studioName) " +
-        "VALUES( '" + title + "'," + year + "," + length + ",'" + studioName + "')";
-        
+
+        String air_name = request.getParameter("air_name");
+        String code = request.getParameter("code");
+        String website = request.getParameter("website");
+
+        String statementString =
+		"INSERT INTO Airline(air_name, code, website) " +
+        "VALUES( '" + air_name + "','" + code + "','" + website + "')";
+        System.out.println(statementString);
         Connection conn = ConnectionManager.getInstance().getConnection();
         try {
             Statement stmt = conn.createStatement();
@@ -36,5 +35,5 @@ public class Insert extends HttpServlet {
     throws ServletException, IOException {
         processRequest(request, response);
     }
-    public String getServletInfo() {  return "Insert"; }
+    public String getServletInfo() {  return "InsertAirline"; }
 }

@@ -31,15 +31,15 @@ CREATE TABLE Incoming (
 CREATE TABLE Departure (
     depID INT PRIMARY KEY,
     gate CHAR(3),
-    depDate Date,
-    DepT Date
+    DepT Date,
+    r_number INT REFERENCES Outgoing(r_number) ON DELETE CASCADE
 );
 
 CREATE TABLE Arrival (
     arrID INT PRIMARY KEY,
     gate CHAR(3),
-    arrDate Date,
-    arrT Date
+    arrT Date,
+    r_number INT REFERENCES Incoming(r_number) ON DELETE CASCADE
 );
 
 CREATE TABLE Passengers (
