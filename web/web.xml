@@ -43,6 +43,15 @@
         <servlet-name>InsertGates</servlet-name>
         <url-pattern>/InsertGates</url-pattern>
     </servlet-mapping>
+	
+	<servlet>
+        <servlet-name>InsertRoutes</servlet-name>
+        <servlet-class>InsertRoutes</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>InsertRoutes</servlet-name>
+        <url-pattern>/InsertRoutes</url-pattern>
+    </servlet-mapping>
 
     <servlet>
         <servlet-name>InsertDeparture</servlet-name>
