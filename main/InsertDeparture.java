@@ -11,12 +11,12 @@ public class InsertDeparture extends HttpServlet {
 
         String depID = request.getParameter("depID");
         String gate = request.getParameter("gate");
-        String DepT = request.getParameter("DepT");
+        String depT = request.getParameter("depT");
         String r_number = request.getParameter("r_number");
 
         String statementString =
-		"INSERT INTO Departure(depID, gate, DepT, r_number) " +
-        "VALUES( '" + depID + "','" + gate + "','" + DepT + "','"+ r_number + "')";
+		"INSERT INTO Departure(depID, gate, depT, r_number) " +
+        "VALUES( '" + depID + "','" + gate + "','" + depT + "','"+ r_number + "')";
         System.out.println(statementString);
         Connection conn = ConnectionManager.getInstance().getConnection();
         try {

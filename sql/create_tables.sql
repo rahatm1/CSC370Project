@@ -31,7 +31,7 @@ CREATE TABLE Incoming (
 CREATE TABLE Departure (
     depID INT PRIMARY KEY,
     gate CHAR(3),
-    DepT Date,
+    depT Date,
     r_number INT REFERENCES Outgoing(r_number) ON DELETE CASCADE
 );
 
@@ -59,14 +59,15 @@ CREATE TABLE GateArr (
 
 CREATE TABLE Passengers (
     passenger_name VARCHAR(255),
-    dob DATE,
+    dob VARCHAR(20),
     birth_place VARCHAR(255),
-    passId CHAR(20) PRIMARY KEY
+    passID CHAR(20) PRIMARY KEY
 );
 
 CREATE TABLE Baggage (
-    baggageID INT PRIMARY KEY,
-    passID CHAR(20) REFERENCES Passengers(passID)
+    baggageID CHAR(20) PRIMARY KEY,
+    passID CHAR(20) REFERENCES Passengers(passID),
+    num_baggage INT
 );
 
 CREATE TABLE Travel (
