@@ -97,4 +97,13 @@
         <servlet-name>Operate</servlet-name>
         <url-pattern>/Operate</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>DeleteRoute</servlet-name>
+        <servlet-class>DeleteRoute</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DeleteRoute</servlet-name>
+        <url-pattern>/DeleteRoute</url-pattern>
+    </servlet-mapping>
 </web-app>

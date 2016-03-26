@@ -15,12 +15,12 @@ public class DeleteRoute extends HttpServlet {
 		"Delete Route where rnum=" +Route;
         System.out.println(statementString);
         Connection conn = ConnectionManager.getInstance().getConnection();
-        
+
 		try {
             Statement stmt = conn.createStatement();
             stmt.executeUpdate(statementString);
             stmt.close();
-            out.println("Insertion Successful!");
+            out.println("Deletion Successful!");
         }
         catch(SQLException e) { out.println(e); }
         ConnectionManager.getInstance().returnConnection(conn);
