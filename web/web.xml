@@ -89,4 +89,12 @@
         <url-pattern>/InsertOutgoing</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>Operate</servlet-name>
+        <servlet-class>Operate</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Operate</servlet-name>
+        <url-pattern>/Operate</url-pattern>
+    </servlet-mapping>
 </web-app>
