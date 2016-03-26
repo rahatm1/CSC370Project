@@ -10,13 +10,12 @@ public class InsertArrival extends HttpServlet {
         PrintWriter out = response.getWriter();
 
         String arrID = request.getParameter("arrID");
-        String gate = request.getParameter("gate");
         String arrT = request.getParameter("arrT");
         String rnum = request.getParameter("rnum");
 
         String statementString =
-		"INSERT INTO Arrival(arrID, gate, arrT, rnum) " +
-        "VALUES( '" + arrID + "','" +gate+ "','" + arrT + "','" +rnum+"')";
+		"INSERT INTO Arrival(arrID, arrT, rnum) " +
+        "VALUES( '" + arrID + ",'" + arrT + "','" +rnum+"')";
         System.out.println(statementString);
         Connection conn = ConnectionManager.getInstance().getConnection();
         try {

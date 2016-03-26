@@ -9,12 +9,12 @@ public class InsertRoutes extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
 
-        String planemodel = request.getParameter("planemodel");
         String rnum = request.getParameter("rnum");
+        String planemodel = request.getParameter("planemodel");
 
         String statementString =
-		"INSERT INTO Routes(planemodel, rnum) " +
-        "VALUES( '" + planemodel + "','" + rnum + "')";
+		"INSERT INTO Route(rnum,planemodel) " +
+        "VALUES( '" + rnum + "','" + planemodel + "')";
         System.out.println(statementString);
         Connection conn = ConnectionManager.getInstance().getConnection();
         

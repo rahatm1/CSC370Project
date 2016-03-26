@@ -50,7 +50,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>InsertRoutes</servlet-name>
-        <url-pattern>/InsertRoutes</url-pattern>
+        <url-pattern>/InsertRoutes</url-pattern>
     </servlet-mapping>
 
     <servlet>
