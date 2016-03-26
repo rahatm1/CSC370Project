@@ -62,4 +62,13 @@
         <url-pattern>/InsertDeparture</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>InsertFlight</servlet-name>
+        <servlet-class>InsertFlight</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>InsertFlight</servlet-name>
+        <url-pattern>/InsertFlight</url-pattern>
+    </servlet-mapping>
+
 </web-app>
