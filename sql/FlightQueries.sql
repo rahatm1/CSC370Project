@@ -45,12 +45,15 @@ FROM Baggage, Passengers
 WHERE Baggage.passID=Passengers.passID AND passID="person";
 
 /* Find a free gate for a flight (arrival or departure).*/
-
-
+SELECT gate
+FROM Gates
+WHERE is_free='y';
 
 /* Assign a flight as “done” and return the gate*/
-
-
+-- returns travel ID, pass ID, depID, arrID for a "finished" flight
+SELECT tID, passID, depID, arrID 
+FROM Travel JOIN Arrival USING(arrID)
+WHERE arrT < SYSDATE;
 
 /* ---------------- */
 

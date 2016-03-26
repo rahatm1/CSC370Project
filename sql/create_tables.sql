@@ -42,6 +42,21 @@ CREATE TABLE Arrival (
     r_number INT REFERENCES Incoming(r_number) ON DELETE CASCADE
 );
 
+CREATE TABLE Gates (
+    gate CHAR(3),
+    is_free CHAR(1);
+);
+
+CREATE TABLE GateDep (
+    depID INT REFERENCES Departure(depID),
+    gate CHAR(3) REFERENCES Gates(gate)
+);
+
+CREATE TABLE GateArr (
+    arrID INT REFERENCES Arrival(arrID),
+    gate CHAR(3) REFERENCES Gates(gate)
+);
+
 CREATE TABLE Passengers (
     passenger_name VARCHAR(255),
     dob DATE,
