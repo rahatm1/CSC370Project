@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Insert Departure</title>
+        <title>Operate</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
     </head>
     <body>
         <center>
-            <h3>Please enter the Incoming</h3>
-            <form method="POST" action="/flight/InsertIncoming" >
-                Destination: <input type="text" name="destination" value="" /> <br>
-                Outgoing Date: <input type="text" name="outT" value="" /> <br>
+            <h3>Please enter the operate details</h3>
+            <form method="POST" action="/flight/Operate" >
+                Airline code: <input type="text" name="acode" value="" /> <br>
                 Route Number: <input type="text" name="rnum" value="" /> <br>
                 <input class="button-primary" type="submit" value="Save" >    <br>
             </form>

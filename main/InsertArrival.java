@@ -3,19 +3,20 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import java.sql.*;
 
-public class InsertAirline extends HttpServlet {
+public class InsertArrival extends HttpServlet {
     void processRequest(HttpServletRequest request, HttpServletResponse response)
     						throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
 
-        String name = request.getParameter("name");
-        String acode = request.getParameter("acode");
-        String website = request.getParameter("website");
+        String arrID = request.getParameter("arrID");
+        String gate = request.getParameter("gate");
+        String arrT = request.getParameter("arrT");
+        String rnum = request.getParameter("rnum");
 
         String statementString =
-		"INSERT INTO Airline(name, acode, website) " +
-        "VALUES( '" + name + "','" + acode + "','" + website + "')";
+		"INSERT INTO Arrival(arrID, gate, arrT, rnum) " +
+        "VALUES( '" + arrID + "','" +gate+ "','" + arrT + "','" +rnum+"')";
         System.out.println(statementString);
         Connection conn = ConnectionManager.getInstance().getConnection();
         try {
@@ -35,5 +36,5 @@ public class InsertAirline extends HttpServlet {
     throws ServletException, IOException {
         processRequest(request, response);
     }
-    public String getServletInfo() {  return "InsertAirline"; }
+    public String getServletInfo() {  return "InsertArrival"; }
 }

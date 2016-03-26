@@ -3,22 +3,22 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import java.sql.*;
 
-public class InsertOutgoing extends HttpServlet {
+public class Operate extends HttpServlet {
     void processRequest(HttpServletRequest request, HttpServletResponse response)
     						throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
 
-        String destination = request.getParameter("destination");
-        String outT = request.getParameter("outT");
+        String acode = request.getParameter("acode");
         String rnum = request.getParameter("rnum");
 
         String statementString =
-		"INSERT INTO Departure(destination, outT, rnum) " +
-        "VALUES( '" + destination + "','" + outT + "','" + rnum + "')";
+		"INSERT INTO Operate(acode, rnum) " +
+        "VALUES( '" + acode + "','" + rnum + "')";
         System.out.println(statementString);
         Connection conn = ConnectionManager.getInstance().getConnection();
-        try {
+        
+		try {
             Statement stmt = conn.createStatement();
             stmt.executeUpdate(statementString);
             stmt.close();
@@ -35,5 +35,5 @@ public class InsertOutgoing extends HttpServlet {
     throws ServletException, IOException {
         processRequest(request, response);
     }
-    public String getServletInfo() {  return "InsertOutgoing"; }
+    public String getServletInfo() {  return "Operate"; }
 }

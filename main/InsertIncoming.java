@@ -3,19 +3,19 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import java.sql.*;
 
-public class InsertOutgoing extends HttpServlet {
+public class InsertIncoming extends HttpServlet {
     void processRequest(HttpServletRequest request, HttpServletResponse response)
     						throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
 
-        String destination = request.getParameter("destination");
-        String outT = request.getParameter("outT");
+        String source = request.getParameter("source");
+        String incT = request.getParameter("incT");
         String rnum = request.getParameter("rnum");
 
         String statementString =
-		"INSERT INTO Departure(destination, outT, rnum) " +
-        "VALUES( '" + destination + "','" + outT + "','" + rnum + "')";
+		"INSERT INTO Departure(source, incT, rnum) " +
+        "VALUES( '" + source + "','" + incT + "','" + rnum + "')";
         System.out.println(statementString);
         Connection conn = ConnectionManager.getInstance().getConnection();
         try {
@@ -35,5 +35,5 @@ public class InsertOutgoing extends HttpServlet {
     throws ServletException, IOException {
         processRequest(request, response);
     }
-    public String getServletInfo() {  return "InsertOutgoing"; }
+    public String getServletInfo() {  return "InsertIncoming"; }
 }

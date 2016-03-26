@@ -43,7 +43,7 @@
         <servlet-name>InsertGates</servlet-name>
         <url-pattern>/InsertGates</url-pattern>
     </servlet-mapping>
-	
+
 	<servlet>
         <servlet-name>InsertRoutes</servlet-name>
         <servlet-class>InsertRoutes</servlet-class>
@@ -63,12 +63,38 @@
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>InsertFlight</servlet-name>
-        <servlet-class>InsertFlight</servlet-class>
+        <servlet-name>InsertArrival</servlet-name>
+        <servlet-class>InsertArrival</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>InsertFlight</servlet-name>
-        <url-pattern>/InsertFlight</url-pattern>
+        <servlet-name>InsertArrival</servlet-name>
+        <url-pattern>/InsertArrival</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>InsertIncoming</servlet-name>
+        <servlet-class>InsertIncoming</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>InsertIncoming</servlet-name>
+        <url-pattern>/InsertIncoming</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>InsertOutgoing</servlet-name>
+        <servlet-class>InsertOutgoing</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>InsertOutgoing</servlet-name>
+        <url-pattern>/InsertOutgoing</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Operate</servlet-name>
+        <servlet-class>Operate</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Operate</servlet-name>
+        <url-pattern>/Operate</url-pattern>
+    </servlet-mapping>
 </web-app>
