@@ -15,7 +15,7 @@ public class InsertArrival extends HttpServlet {
 
         String statementString =
 		"INSERT INTO Arrival(arrID, arrT, rnum) " +
-        "VALUES( '" + arrID + ",'" + arrT + "','" +rnum+"')";
+        "VALUES( " + arrID + ",TO_DATE('" + arrT + "', 'DD-MM-YYYY HH24:MI:SS ')," + rnum + ")";
         System.out.println(statementString);
         Connection conn = ConnectionManager.getInstance().getConnection();
         try {

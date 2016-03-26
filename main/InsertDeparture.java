@@ -15,7 +15,7 @@ public class InsertDeparture extends HttpServlet {
 
         String statementString =
 		"INSERT INTO Departure(depID, depT, rnum) " +
-        "VALUES( '" + depID + "','" + depT + "','"+ rnum + "')";
+        "VALUES( " + depID + ",TO_DATE('" + depT + "', 'DD-MM-YYYY HH24:MI:SS ')," + rnum + ")";
         System.out.println(statementString);
         Connection conn = ConnectionManager.getInstance().getConnection();
         try {
