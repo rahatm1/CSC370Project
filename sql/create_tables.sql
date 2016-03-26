@@ -36,7 +36,7 @@ CREATE TABLE Departure (
 
 CREATE TABLE Arrival (
     arrID INT PRIMARY KEY,
-    arrT Date,
+    arrT DATE,
     rnum INT REFERENCES IncomingRoutes(rnum) ON DELETE CASCADE
 );
 

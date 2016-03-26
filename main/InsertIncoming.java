@@ -14,7 +14,7 @@ public class InsertIncoming extends HttpServlet {
         String rnum = request.getParameter("rnum");
 
         String statementString =
-		"INSERT INTO Departure(source, incT, rnum) " +
+		"INSERT INTO IncomingRoutes(source, incT, rnum) " +
         "VALUES( '" + source + "','" + incT + "','" + rnum + "')";
         System.out.println(statementString);
         Connection conn = ConnectionManager.getInstance().getConnection();
