@@ -53,4 +53,13 @@
         <url-pattern>/InsertRoutes</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>InsertDeparture</servlet-name>
+        <servlet-class>InsertDeparture</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>InsertDeparture</servlet-name>
+        <url-pattern>/InsertDeparture</url-pattern>
+    </servlet-mapping>
+
 </web-app>
