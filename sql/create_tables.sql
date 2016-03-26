@@ -43,8 +43,8 @@ CREATE TABLE Arrival (
 );
 
 CREATE TABLE Gates (
-    gate CHAR(3),
-    is_free CHAR(1);
+    gate CHAR(3) PRIMARY KEY,
+    is_free CHAR(1)
 );
 
 CREATE TABLE GateDep (
