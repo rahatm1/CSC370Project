@@ -31,13 +31,13 @@ CREATE TABLE IncomingRoutes (
 CREATE TABLE Departure (
     depID INT PRIMARY KEY,
     depT Date,
-    rnum INT REFERENCES Outgoing(rnum) ON DELETE CASCADE
+    rnum INT REFERENCES OutgoingRoutes(rnum) ON DELETE CASCADE
 );
 
 CREATE TABLE Arrival (
     arrID INT PRIMARY KEY,
     arrT Date,
-    rnum INT REFERENCES Incoming(rnum) ON DELETE CASCADE
+    rnum INT REFERENCES IncomingRoutes(rnum) ON DELETE CASCADE
 );
 
 CREATE TABLE Gates (
@@ -56,11 +56,11 @@ CREATE TABLE GateArr (
 );
 
 CREATE TABLE Passengers (
-    pID INT,
+    pID INT PRIMARY KEY,
     name VARCHAR(255),
     dob DATE,
     pob VARCHAR(255),
-    gov_issued_id CHAR(20) PRIMARY KEY,
+    gov_issued_id CHAR(20),
     DP INT REFERENCES Departure(depID),
     AP INT REFERENCES Arrival(arrID)
 );
@@ -68,5 +68,5 @@ CREATE TABLE Passengers (
 CREATE TABLE Baggage (
     bID INT PRIMARY KEY,
     weight NUMBER,
-    pID CHAR(20) REFERENCES Passengers(passID)
+    passID INT REFERENCES Passengers(pID)
 );
