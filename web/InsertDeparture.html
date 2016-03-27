@@ -12,7 +12,14 @@
                 Departure Time: <input type="text" name="depT" value="" placeholder="DD-MM-YYYY HH24:MI:SS" /> <br>
                 Route Number: <input type="text" name="rnum" value="" /> <br>
                 <input class="button-primary" type="submit" value="Save" >    <br>
-            </form>
+  				<button onclick="goBack()"> Cancel </button>
+				<script>
+					function goBack() 
+					{
+						window.history.back();
+					}
+				</script>
+			</form>
         </center>
     </body>
 </html>

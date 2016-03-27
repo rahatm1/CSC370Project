@@ -9,8 +9,17 @@
             <h3>Please enter the gates</h3>
             <form method="POST" action="/flight/InsertGates" >
                 Gate: <input type="text" name="gate" value="" /> <br>
-                <input class="button-primary" type="submit" value="Save" >    <br>
-            </form>
+				<pre>
+   <button onclick="goBack()"> Cancel </button>        <input class="button-primary" type="submit" value="Save" >
+				<script>
+					function goBack() 
+					{
+						window.history.back();
+					}
+				</script>
+					
+				</pre>
+			</form>
         </center>
     </body>
 </html>
