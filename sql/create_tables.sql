@@ -70,3 +70,17 @@ CREATE TABLE Baggage (
     weight NUMBER,
     passID INT REFERENCES Passengers(pID)
 );
+
+CREATE OR REPLACE VIEW ConnectingPassengers AS
+  SELECT pID, name, dob, pob, gov_issued_id, DP, AP
+  FROM Passengers
+  WHERE NOT EXISTS(
+    SELECT *
+    FROM (SELECT arrID, depID
+          FROM (Arrival Join INCOMINGROUTES USING (rnum)),
+            (Departure Join OutgoingRoutes USING(rnum))
+            WHERE (outT-incT)*24>12
+            OR (outT-incT)*24<1)
+    WHERE AP=arrID AND DP=depID
+  )
+WITH CHECK OPTION;

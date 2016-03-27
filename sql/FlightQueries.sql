@@ -49,10 +49,10 @@ SELECT gate
 FROM Gates
 WHERE is_free='y';
 
-/* Assign a flight as “done” and return the gate*/
+/* Assign a flight as done and return the gate*/
 -- returns gates of flights that are done
 SELECT DISTINCT gate
-FROM 
+FROM
   (SELECT gate
   FROM GateDep JOIN Departure USING(depID)
   WHERE depT < SYSDATE
@@ -110,16 +110,16 @@ ORDER BY COUNT(name) DESC;
 -- Advanced Constraints
 
 -- i) No passenger can be associated with more than two flights, which have to be connecting flights.
-CREATE OR REPLACE VIEW ConflictingFlights AS
+CREATE OR REPLACE VIEW ConnectingPassengers AS
   SELECT pID, name, dob, pob, gov_issued_id, DP, AP
   FROM Passengers
   WHERE NOT EXISTS(
     SELECT *
     FROM (SELECT arrID, depID
-          FROM Arrival, Departure
-          WHERE arrT < depT
-            AND (depT-arrT)*24<12
-            AND (depT-arrT)*24>1)
+          FROM (Arrival Join INCOMINGROUTES USING (rnum)),
+            (Departure Join OutgoingRoutes USING(rnum))
+            WHERE (outT-incT)*24>12
+            OR (outT-incT)*24<1)
     WHERE AP=arrID AND DP=depID
   )
 WITH CHECK OPTION;
@@ -152,17 +152,3 @@ CREATE OR REPLACE VIEW ConflictingArr AS
        ABS(A1.depT-A2.depT)*24<1)
   )
 WITH CHECK OPTION;
-
-
-
-
-
-
-
-
-
-
-
-
-
-

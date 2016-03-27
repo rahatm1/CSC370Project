@@ -23,7 +23,7 @@ public class Insertdata{
 
             String line = reader.readLine();
             while(line != null){
-                String m = "INSERT INTO PASSENGERS VALUES(";
+                String m = "INSERT INTO ConnectingPassengers VALUES(";
                 String[] tok = line.split(",");
                 if (tok[5].length() == 0) tok[5] = "NULL";
                 if (tok.length == 6)
