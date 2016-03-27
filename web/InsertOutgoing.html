@@ -6,19 +6,20 @@
     </head>
     <body>
         <center>
-            <h3>Please enter the Incoming</h3>
+            <h3>Please enter the Outgoing</h3>
             <form method="POST" action="/flight/InsertOutgoing" >
-                Destination: <input type="text" name="destination" value="" /> <br>
-                Outgoing Date: <input type="text" name="outT" value="" placeholder="DD-MM-YYYY HH24:MI:SS" /> <br>
-                Route Number: <input type="text" name="rnum" value="" /> <br>
-                <input class="button-primary" type="submit" value="Save" >    <br>
-            	<button onclick="goBack()"> Cancel </button>
+            <pre>
+	Destination: 	<input type="text" name="destination" value="" /> <br>
+         Outgoing Date:  <input type="text" name="outT" value="" placeholder="DD-MM-YYYY HH24:MI:SS" /> <br>
+	  Route Number:  <input type="text" name="rnum" value="" /> <br> <br>
+        <button onclick="goBack()"> Cancel </button>             <input class="button-primary" type="submit" value="Save" >
 				<script>
-					function goBack() 
+					function goBack()
 					{
 						window.history.back();
 					}
 				</script>
+				</pre>
 			</form>
         </center>
     </body>

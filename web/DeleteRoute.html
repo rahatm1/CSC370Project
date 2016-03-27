@@ -6,17 +6,18 @@
     </head>
     <body>
         <center>
-            <h3>Please enter the route number</h3>
+            <h3>Please enter the route number</h3> <b>
             <form method="POST" action="/flight/DeleteRoute" >
-                Route Number: <input type="text" name="route" value=""/> <br>
-                <input class="button-primary" type="submit" value="Delete" >    <br>
-				<button onclick="goBack()"> Cancel </button>
+            <pre>    
+	Route Number: <input type="text" name="route" value=""/> <br> <br>                
+        <button onclick="goBack()"> Cancel </button>             <input class="button-primary" type="submit" value="Save" >
 				<script>
 					function goBack() 
 					{
 						window.history.back();
 					}
 				</script>
+				</pre>
 		   </form>
         </center>
     </body>
