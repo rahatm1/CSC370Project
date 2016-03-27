@@ -8,16 +8,17 @@
         <center>
             <h3>Please enter the operate details</h3>
             <form method="POST" action="/flight/Operate" >
-                Airline code: <input type="text" name="acode" value="" /> <br>
-                Route Number: <input type="text" name="rnum" value="" /> <br>
-                <input class="button-primary" type="submit" value="Save" >    <br>
-            	<button onclick="goBack()"> Cancel </button>
+            <pre>    
+	Airline code: <input type="text" name="acode" value="" /> <br>
+	Route Number: <input type="text" name="rnum" value="" /> <br> <br>
+        <button onclick="goBack()"> Cancel </button>             <input class="button-primary" type="submit" value="Save" >
 				<script>
 					function goBack() 
 					{
 						window.history.back();
 					}
 				</script>
+				</pre>
 			</form>
         </center>
     </body>
