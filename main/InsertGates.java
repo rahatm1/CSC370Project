@@ -12,8 +12,8 @@ public class InsertGates extends HttpServlet {
         String gate = request.getParameter("gate");
 
         String statementString =
-		"INSERT INTO Gates(gate) " +
-        "VALUES( '" + gate + "')";
+		"INSERT INTO Gates(gate, is_free) " +
+        "VALUES( '" + gate + "', 'y')";
         System.out.println(statementString);
         Connection conn = ConnectionManager.getInstance().getConnection();
         try {

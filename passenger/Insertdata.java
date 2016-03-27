@@ -11,7 +11,7 @@ import java.util.*;
 public class Insertdata{
     public static void main(String[] args)throws SQLException{
         Connection conn = ConnectionManager.getInstance().getConnection();
-        // passengerdata(conn);
+        passengerdata(conn);
         baggagedata(conn);
     }
     public static void passengerdata(Connection conn){

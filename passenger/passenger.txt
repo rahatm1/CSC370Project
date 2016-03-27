@@ -3,13 +3,3 @@
 3,Protector Mahbub,12-10-1994,Bangladesh, V120415,,3
 4,Genius Lam,12-03-1994,Asia, X105124,5,
 5,Devesh Bhandu,22-03-1994,China,J1025123,3,
-6,Iron Ram,12-03-1991,Hong Kong,K195372,,5
-7,Prom Queen,19-04-1991,Pakistan,P2384012,2,9
-8,Ruthless Victim,12-03-1992,England,P283102,3,4
-9,Papa Bear,01-03-1994,Swiss,H21293,11,
-10,Beer Blood,13-12-1992,France,B92959,10,7
-11,Victimiser,12-03-1978,USA,C020102,,3
-12,Fabulous George,13-03-1989,Uganda,D90294,5,6
-13,Fake Taxi,13-12-1990,Mexico,D949291,8
-14,Backroom Casting Couch,13-12-1990,Spain,X92858,,3
-15,Foxxxxy Lamb,13-12-1990,Cuba,Z2940102,2,
