@@ -106,4 +106,13 @@
         <servlet-name>DeleteRoute</servlet-name>
         <url-pattern>/DeleteRoute</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ExtractInfo</servlet-name>
+        <servlet-class>ExtractInfo</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ExtractInfo</servlet-name>
+        <url-pattern>/ExtractInfo/*</url-pattern>
+    </servlet-mapping>
 </web-app>

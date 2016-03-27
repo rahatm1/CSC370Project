@@ -10,7 +10,14 @@
             <form method="POST" action="/flight/DeleteRoute" >
                 Route Number: <input type="text" name="route" value=""/> <br>
                 <input class="button-primary" type="submit" value="Delete" >    <br>
-            </form>
+				<button onclick="goBack()"> Cancel </button>
+				<script>
+					function goBack() 
+					{
+						window.history.back();
+					}
+				</script>
+		   </form>
         </center>
     </body>
 </html>
