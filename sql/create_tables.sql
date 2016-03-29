@@ -28,6 +28,11 @@ CREATE TABLE IncomingRoutes (
     rnum INT PRIMARY KEY REFERENCES Route(rnum) ON DELETE CASCADE
 );
 
+CREATE TABLE Gates (
+    gate CHAR(3) PRIMARY KEY,
+    is_free CHAR(1) check (is_free in ('y', 'n'))
+);
+
 CREATE TABLE Departure (
     depID INT PRIMARY KEY,
     depT Date,
@@ -40,11 +45,6 @@ CREATE TABLE Arrival (
     arrT DATE,
     rnum INT REFERENCES IncomingRoutes(rnum) ON DELETE CASCADE,
     gate CHAR(3) REFERENCES Gates(gate)
-);
-
-CREATE TABLE Gates (
-    gate CHAR(3) PRIMARY KEY,
-    is_free CHAR(1) check (is_free in ('y', 'n'))
 );
 
 CREATE TABLE Passengers (
