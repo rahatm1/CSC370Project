@@ -6,13 +6,14 @@
     </head>
     <body>
         <center>
-            <h3>Please enter the arrival</h3>
+            <h3>Please enter the arrival</h3> <br>
             <form method="POST" action="/flight/InsertArrival" >
-			<pre>    Arrival ID:   <input type="text" name="arrID" value="" /> <br>
-     Arrival Time: <input type="text" name="arrT" value="" placeholder="DD-MM-YYYY HH24:MI:SS" /> <br>
-      Route number: <input type="text" name="rnum" value="" /> <br> <br>
+			<font face = "Times New Roman" size = "4">
+			<pre>    Arrival ID:       <input type="text" name="arrID" value="" /> <br>
+     Arrival Time:   <input type="text" name="arrT" value="" placeholder="DD-MM-YYYY HH24:MI:SS" /> <br>
+      Route number: <input type="text" name="rnum" value="" /> <br> <br> </font>
                
-         <button onclick="goBack()"> Cancel </button>             <input class="button-primary" type="submit" value="Save" >
+		<button onclick="goBack()"> Cancel </button>	<input class="button-primary" type="submit" value="Save" >
 				<script>
 					function goBack() 
 					{
