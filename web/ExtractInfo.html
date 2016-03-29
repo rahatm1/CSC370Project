@@ -16,7 +16,7 @@
             <form method="GET" action="/flight/ExtractInfo/AirlineRoute" >
             <font face = "Times New Roman" size = "4">
 			<pre>
-	Find all routes for airline: <input type="text" name="air_name" value="" /> <br> </font>
+	Find all routes for airline: <input type="text" name="air_name" value="" placeholder="Airline Name" /> <br> </font>
 		<button onclick="goBack()"> Cancel </button>	<input class="button-primary" type="submit" value="Get" >
 			</pre>
 			</form>
@@ -32,7 +32,7 @@
             <form method="GET" action="/flight/ExtractInfo/FlightTime" >
 			<font face = "Times New Roman" size = "4">
 			<pre>
-	Find all arrival and departure around time: <input type="text" name="time" value="" /> <br> </font>
+	Find all arrival and departure around time: <input type="text" name="time" value="" placeholder="DD-MM-YYYY HH24:MI:SS"/> <br> </font>
 		<button onclick="goBack()"> Cancel </button>	<input class="button-primary" type="submit" value="Get" ><br>
 			</pre>
 			</form>
@@ -69,13 +69,21 @@
 			</pre>
 			</form>
 
-			<form method="GET" action="/flight/ExtractInfo/DoneGate" >
+			<form method="GET" action="/flight/ExtractInfo/DoneGateDeparture" >
             <font face = "Times New Roman" size = "4">
 			<pre>
-	Assign flight done for: <input type="text" name="flight" value="" /> <br> </font>
+	Assign flight done for departure: <input type="text" name="depID" value="" /> <br> </font>
 		<button onclick="goBack()"> Cancel </button>	<input class="button-primary" type="submit" value="Get" >
 			</pre>
 			</form>
+
+            <form method="GET" action="/flight/ExtractInfo/DoneGateArrival" >
+            <font face = "Times New Roman" size = "4">
+            <pre>
+    Assign flight done for Arrival: <input type="text" name="arrID" value="" /> <br> </font>
+        <button onclick="goBack()"> Cancel </button>	<input class="button-primary" type="submit" value="Get" >
+            </pre>
+            </form>
         </center>
     </body>
 </html>

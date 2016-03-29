@@ -21,13 +21,13 @@ FROM
 and print their status.*/
 -- determine status in java ...
 -- gets depID for departures within +/- 1 hour
-SELECT depID
+SELECT depID, depT, rnum, gate
 FROM Departure D1
 WHERE ABS(D1.depT-TO_DATE('date_string','Month dd, YYYY, HH:MI A.M.','NLS_DATE_LANGUAGE = American'))*24<1;
 -- gets arrID for arrivals within +/- 1 hour
-SELECT arrID
+SELECT arrID, arrT, rnum, gate
 FROM Arrival A1
-WHERE ABS(A1.depT-TO_DATE('date_string','Month dd, YYYY, HH:MI A.M.','NLS_DATE_LANGUAGE = American'))*24<1;
+WHERE ABS(A1.arrT-TO_DATE('date_string','Month dd, YYYY, HH:MI A.M.','NLS_DATE_LANGUAGE = American'))*24<1;
 
 
 /* Given a departure (dep_ID) or arrival (arr_ID) find all the passengers recorded

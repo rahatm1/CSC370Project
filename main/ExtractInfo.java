@@ -178,6 +178,118 @@ public class ExtractInfo extends HttpServlet {
                             ConnectionManager.getInstance().returnConnection(conn);
                         }
 
+                        void setDoneGate(HttpServletRequest request, HttpServletResponse response)
+                            throws ServletException, IOException {
+
+                            PrintWriter out = response.getWriter();
+                            String id;
+                            boolean departure = false;
+                            String statementString;
+                            if (request.getPathInfo().equals("/DoneGateDeparture"))
+                            {
+                                departure = true;
+                                id = request.getParameter("depID");
+                                statementString = "SELECT gate FROM Departure WHERE depID = " + id;
+                            }
+                            else
+                            {
+                                id = request.getParameter("arrID");
+                                statementString = "SELECT gate FROM Arrival WHERE arrID = " + id;
+                            }
+                            Connection conn = ConnectionManager.getInstance().getConnection();
+                            int gateNum = -1;
+                            try {
+                                Statement stmt = conn.createStatement();
+                                System.out.println(statementString);
+                                ResultSet rset = stmt.executeQuery(statementString);
+                                while (rset.next()) {
+                                    gateNum = rset.getInt("gate");
+                                }
+                                stmt.close();
+                            }
+                                catch(SQLException e) { out.println(e); }
+                            if (gateNum != -1)
+                            {
+                                try{
+                                    Statement stmt = conn.createStatement();
+                                    stmt.executeQuery("UPDATE GATES SET IS_FREE = 'y' WHERE GATE = " + gateNum);
+                                    out.println("Gate: " + gateNum + " has been freed!");
+                                    stmt.close();
+                                }
+                                catch(SQLException e) { out.println(e); }
+
+                            }
+                                ConnectionManager.getInstance().returnConnection(conn);
+                            }
+
+                void getFlightTime(HttpServletRequest request, HttpServletResponse response)
+                    throws ServletException, IOException {
+
+                    PrintWriter out = response.getWriter();
+                    String time = request.getParameter("time");
+                    Connection conn = ConnectionManager.getInstance().getConnection();
+                    try {
+                        Statement stmt = conn.createStatement();
+                        String statementString = "SELECT depID, depT, rnum, gate FROM Departure D1 " +
+                        "WHERE ABS(D1.depT-TO_DATE('" + time + "','DD-MM-YYYY HH24:MI:SS'))*24<1";
+                        System.out.println(statementString);
+                        ResultSet rset = stmt.executeQuery(statementString);
+                            out.println("<h5> Departures </h5>");
+                            out.println("<table>");
+                            out.print(
+                            "<tr>\n" +
+                                "<th>Departure ID</th>\n" +
+                                "<th>Departure Time</th>\n" +
+                                "<th>Route Number</th>\n" +
+                                "<th>Gate Number</th>\n" +
+                            "</tr>\n");
+                        while (rset.next()) {
+                            out.println("<tr>");
+                            out.print (
+                                "<td>"+rset.getString("depID")+"</td>" +
+                                "<td>"+rset.getString("depT")+"</td>" +
+                                "<td>"+rset.getString("rnum")+"</td>" +
+                                "<td>"+rset.getString("gate")+"</td>"
+                                );
+                                out.println("</tr>");
+                            }
+                            out.println("</table>");
+                            stmt.close();
+                        }
+                        catch(SQLException e) { out.println(e); }
+
+                        try {
+                            Statement stmt = conn.createStatement();
+                            String statementString = "SELECT arrID, arrT, rnum, gate FROM Arrival A1 " +
+                            "WHERE ABS(A1.arrT-TO_DATE('" + time + "','DD-MM-YYYY HH24:MI:SS'))*24<1";
+                            System.out.println(statementString);
+                            ResultSet rset = stmt.executeQuery(statementString);
+                                out.println("<h5> Arrivals </h5>");
+                                out.println("<table>");
+                                out.print(
+                                "<tr>\n" +
+                                    "<th>Arrival ID</th>\n" +
+                                    "<th>Arrival Time</th>\n" +
+                                    "<th>Route Number</th>\n" +
+                                    "<th>Gate Number</th>\n" +
+                                "</tr>\n");
+                            while (rset.next()) {
+                                out.println("<tr>");
+                                out.print (
+                                    "<td>"+rset.getString("arrID")+"</td>" +
+                                    "<td>"+rset.getString("arrT")+"</td>" +
+                                    "<td>"+rset.getString("rnum")+"</td>" +
+                                    "<td>"+rset.getString("gate")+"</td>"
+                                    );
+                                    out.println("</tr>");
+                                }
+                                out.println("</table>");
+                                stmt.close();
+                            }
+                            catch(SQLException e) { out.println(e); }
+                        ConnectionManager.getInstance().returnConnection(conn);
+                    }
+
 
 
         public void printHeader(PrintWriter out)
@@ -210,6 +322,8 @@ public class ExtractInfo extends HttpServlet {
             else if (request.getPathInfo().equals("/DeparturePassenger") || request.getPathInfo().equals("/ArrivalPassenger")) getPassengers(request, response);
             else if (request.getPathInfo().equals("/Baggage")) getBaggage(request, response);
             else if (request.getPathInfo().equals("/FreeGate")) getFreeGate(request, response);
+            else if (request.getPathInfo().equals("/DoneGateDeparture") || request.getPathInfo().equals("/DoneGateArrival")) setDoneGate(request, response);
+            else if (request.getPathInfo().equals("/FlightTime")) getFlightTime(request, response);
             else out.println("<p>NOT FOUND</p>");
 
             printEnd(out);
