@@ -8,17 +8,18 @@
         <center>
             <h3>Please enter the departure </h3>
             <form method="POST" action="/flight/InsertDeparture" >
-<pre>    
-      Departure ID:   <input type="text" name="depID" value="" /> <br>
+<pre>
+      Departure ID:    <input type="text" name="depID" value="" /> <br>
        Departure Time: <input type="text" name="depT" value="" placeholder="DD-MM-YYYY HH24:MI:SS" /> <br>
-       Route Number:   <input type="text" name="rnum" value="" /> <br> <br>           
+       Route Number:   <input type="text" name="rnum" value="" /> <br> <br>
+       Gate:           <input type="text" name="gate" value="" /> <br> <br>
         <button onclick="goBack()"> Cancel </button>             <input class="button-primary" type="submit" value="Save" >
 		<script>
-					function goBack() 
+					function goBack()
 					{
 						window.history.back();
 					}
-				</script>
+		</script>
 				</pre>
 			</form>
         </center>
