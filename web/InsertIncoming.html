@@ -8,11 +8,12 @@
         <center>
             <h3>Please enter the Incoming</h3>
             <form method="POST" action="/flight/InsertIncoming" >
+			<font face = "Times New Roman" size = "4">
             <pre>    
 	    Origin: 	  <input type="text" name="source" value="" /> <br>
-            Incoming Date: <input type="text" name="incT" value="" placeholder="DD-MM-YYYY HH24:MI:SS"/> <br>
-            Route Number:  <input type="text" name="rnum" value="" /> <br> <br>
-        <button onclick="goBack()"> Cancel </button>             <input class="button-primary" type="submit" value="Save" >
+         Incoming Date:  <input type="text" name="incT" value="" placeholder="DD-MM-YYYY HH24:MI:SS"/> <br>
+          Route Number:  <input type="text" name="rnum" value="" /> <br> <br> </font>
+		<button onclick="goBack()"> Cancel </button>	<input class="button-primary" type="submit" value="Save" >
 		<script>
 					function goBack() 
 					{

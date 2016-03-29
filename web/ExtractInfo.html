@@ -12,61 +12,68 @@
     </script>
     <body>
         <center>
-            <h3>Extract Information</h3>
-
+            <h3>Extract Information</h3> <br>
             <form method="GET" action="/flight/ExtractInfo/AirlineRoute" >
-            <pre>
-	Find all routes for airline: <input type="text" name="air_name" value="" /> <br>
-        <button onclick="goBack()"> Cancel </button>             <input class="button-primary" type="submit" value="GET" >
+            <font face = "Times New Roman" size = "4">
+			<pre>
+	Find all routes for airline: <input type="text" name="air_name" value="" /> <br> </font>
+		<button onclick="goBack()"> Cancel </button>	<input class="button-primary" type="submit" value="Get" >
 			</pre>
 			</form>
 
             <form method="GET" action="/flight/ExtractInfo/PlaceRoute" >
+			<font face = "Times New Roman" size = "4">
 			<pre>
-	Find all routes from and to: <input type="text" name="place" value="" /> <br>
-        <button onclick="goBack()"> Cancel </button>             <input class="button-primary" type="submit" value="GET" ><br>
+	Find all routes from and to: <input type="text" name="place" value="" /> <br> </font>
+		<button onclick="goBack()"> Cancel </button>	<input class="button-primary" type="submit" value="Get" ><br>
 			</pre>
 			</form>
 
             <form method="GET" action="/flight/ExtractInfo/FlightTime" >
+			<font face = "Times New Roman" size = "4">
 			<pre>
-	Find all arrival and departure around time: <input type="text" name="time" value="" /> <br>
-        <button onclick="goBack()"> Cancel </button>             <input class="button-primary" type="submit" value="GET" ><br>
+	Find all arrival and departure around time: <input type="text" name="time" value="" /> <br> </font>
+		<button onclick="goBack()"> Cancel </button>	<input class="button-primary" type="submit" value="Get" ><br>
 			</pre>
 			</form>
 
 			<form method="GET" action="/flight/ExtractInfo/DeparturePassenger" >
-            <pre>
-	Find all passengers for departrue: <input type="text" name="depID" value="" /> <br>
-        <button onclick="goBack()"> Cancel </button>             <input class="button-primary" type="submit" value="GET" ><br>
+            <font face = "Times New Roman" size = "4">
+			<pre>
+	Find all passengers for departrue: <input type="text" name="depID" value="" /> <br> </font>
+		<button onclick="goBack()"> Cancel </button>	<input class="button-primary" type="submit" value="Get" ><br>
 			</pre>
 			</form>
 
 			<form method="GET" action="/flight/ExtractInfo/ArrivalPassenger" >
-            <pre>
-	Find all passengers for arrival: <input type="text" name="arrID" value="" /> <br>
-        <button onclick="goBack()"> Cancel </button>             <input class="button-primary" type="submit" value="GET" ><br>
+            <font face = "Times New Roman" size = "4">
+			<pre>
+	Find all passengers for arrival: <input type="text" name="arrID" value="" /> <br> </font>
+		<button onclick="goBack()"> Cancel </button>	<input class="button-primary" type="submit" value="Get" ><br>
 			</pre>
 			</form>
 
 			<form method="GET" action="/flight/ExtractInfo/Baggage" >
+			<font face = "Times New Roman" size = "4">
 			<pre>
-	Find baggage for passenger: <input type="text" name="passengerID" value="" /> <br>
-        <button onclick="goBack()"> Cancel </button>             <input class="button-primary" type="submit" value="GET" >
+	Find baggage for passenger: <input type="text" name="passengerID" value="" /> <br> </font>
+		<button onclick="goBack()"> Cancel </button>	<input class="button-primary" type="submit" value="Get" >
 			</pre>
 			</form>
 
             <form method="GET" action="/flight/ExtractInfo/FreeGate" >
-            <pre>
-	Find a free gate for a flight <br>
-        <button onclick="goBack()"> Cancel </button>             <input class="button-primary" type="submit" value="GET" ><br>
+            <font face = "Times New Roman" size = "4">
+			<pre>
+	Find a free gate for a flight : <input type = "checkbox"> <br> </font>
+		<button onclick="goBack()"> Cancel </button>	<input class="button-primary" type="submit" value="Get" ><br>
 			</pre>
 			</form>
 
 			<form method="GET" action="/flight/ExtractInfo/DoneGate" >
-            <pre>
-	Assign flight done for: <input type="text" name="flight" value="" /> <br>
-        <button onclick="goBack()"> Cancel </button>             <input class="button-primary" type="submit" value="GET" >
+            <font face = "Times New Roman" size = "4">
+			<pre>
+	Assign flight done for: <input type="text" name="flight" value="" /> <br> </font>
+		<button onclick="goBack()"> Cancel </button>	<input class="button-primary" type="submit" value="Get" >
 			</pre>
 			</form>
         </center>
