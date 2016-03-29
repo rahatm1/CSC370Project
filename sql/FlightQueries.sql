@@ -75,8 +75,8 @@ WHERE r1.incT < r2.outT
   AND (r2.outT-r1.incT)*24>1;
 
 /* Find all the passengers in transit.*/
-SELECT Passenger.pID
-FROM (Passenger JOIN Departure USING(DepID)) JOIN Arrival USING(ArrID)
+SELECT Passengers.pID
+FROM (Passengers JOIN Departure ON depID=DP) JOIN Arrival ON arrID=AP
 WHERE SYSDATE>Departure.depT AND SYSDATE<Arrival.arrT;
 
 /* Find the top three persons with respect to the number of flights they have
@@ -84,7 +84,7 @@ taken. */
 SELECT *
 FROM
   (SELECT pID, COUNT(pID) as num_flights
-  FROM Passenger
+  FROM Passengers
   GROUP BY pID
   ORDER BY COUNT(pID) DESC)
 WHERE ROWNUM<=3;
@@ -96,12 +96,13 @@ FROM
   (SELECT name
   FROM Operate JOIN Airline USING(acode)
   WHERE rnum IN
-    (SELECT rnum
+    ((SELECT rnum
     FROM OutgoingRoutes JOIN Departure USING(rnum)
-    WHERE OutgoingRoutes.outT>Departure.depT
+    WHERE OutgoingRoutes.outT>Departure.depT)
       UNION
-    SELECT rnum
+    (SELECT rnum
     FROM IncomingRoutes JOIN Arrival USING(rnum)
     WHERE IncomingRoutes.incT>Arrival.arrT))
+)
 GROUP BY name
 ORDER BY COUNT(name) DESC;
